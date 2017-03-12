@@ -6,7 +6,7 @@ matrix methods:
 - [x] rows
 - [x] columns
 - [x] default constructor
-- [ ] constructor with params
+- [x] constructor with params
 - [ ] destructor
 - [ ] fill
 - [ ] print
