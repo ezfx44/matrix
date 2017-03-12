@@ -6,6 +6,6 @@ SCENARIO("matrix init", "[init]") {
 	REQUIRE(matr.rows() == 3);
 	REQUIRE(matr.columns() == 3);
 	Matrix matr2(5, 5);
-	REQUIRE(matr2.rows() == 5;
-	REQUIRE(matr2.colimns() == 4;
+	REQUIRE(matr2.rows() == 5);
+	REQUIRE(matr2.colimns() == 4);
 }
