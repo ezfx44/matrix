@@ -1,4 +1,14 @@
 #include "matrix.hpp"
+auto Matrix::rows() -> unsigned int
+{
+    return row;
+}
+
+auto Matrix::columns() -> unsigned int
+{
+    return column;
+}
+
 Matrix::Matrix(int side) : row(side), column(side)
 {
 	arr = new int*[row];
