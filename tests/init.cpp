@@ -7,5 +7,5 @@ SCENARIO("matrix init", "[init]") {
 	REQUIRE(matr.columns() == 3);
 	Matrix matr2(5, 5);
 	REQUIRE(matr2.rows() == 5);
-	REQUIRE(matr2.columns() == 4);
+	REQUIRE(matr2.columns() == 5);
 }
