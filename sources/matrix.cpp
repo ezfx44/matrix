@@ -121,3 +121,51 @@ Matrix Matrix::operator=(const Matrix& x)
 	}
 	return *this;
 }
+bool Matrix::operator==(const Matrix& m) const
+{
+	if (row != m.row || column != m.column)
+	{
+		return false;
+	}
+	else
+	{
+		for (int i = 0; i < row; i++)
+		{
+			for (int j = 0; j < column; j++)
+			{
+				if (arr[i][j] != m.arr[i][j])
+				{
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+}
+std::istream& operator >> (std::istream& is, Matrix& m)
+{
+	for (int i = 0; i < m.row; i++)
+	{
+		for (int j = 0; j < m.column; j++)
+		{
+			std::cout << "arr[" << i << "][" << j << "] = ";
+			is >> m.arr[i][j];
+			std::cout << std::endl;
+		}
+	}
+	return is;
+}
+std::ostream& operator << (std::ostream& os, const Matrix& m)
+{
+	for (int i = 0; i < m.row; i++)
+	{
+		for (int j = 0; j < m.column; j++)
+		{
+			std::cout.width(4);
+			std::cout << m.arr[i][j] << " ";
+		}
+		std::cout << '\n';
+	}
+	std::cout << std::endl;
+	return os;
+}
