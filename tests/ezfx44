@@ -8,4 +8,7 @@ SCENARIO("matrix init", "[init]") {
 	Matrix matr2(5, 5);
 	REQUIRE(matr2.rows() == 5);
 	REQUIRE(matr2.columns() == 5);
+	Matrix matr3(matr);
+	REQUIRE(matr.rows() == 3);
+	REQUIRE(matr.columns() == 3);
 }
