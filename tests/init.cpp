@@ -14,10 +14,10 @@ SCENARIO("matrix init", "[init]") {
 }
 SCENARIO("matrix operators", "[operators]") {
 	Matrix m1, m2, sum, comp;
-	m1.fill_matrix("/Sources/matrix1.txt");
-	m2.fill_matrix("/Sources/matrix2.txt");
-	sum.fill_matrix("/Sources/matrix_sum.txt");
-	comp.fill_matrix("/Sources/matrix_comp.txt");
+	m1.fill_matrix("matrix1.txt");
+	m2.fill_matrix("matrix2.txt");
+	sum.fill_matrix("matrix_sum.txt");
+	comp.fill_matrix("matrix_comp.txt");
 	REQUIRE (sum == m1 + m2);
 	REQUIRE (comp == m1 * m2);
 }
