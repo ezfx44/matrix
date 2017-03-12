@@ -3,6 +3,6 @@
 
 SCENARIO("matrix init", "[init]") {
 	Matrix matr;
-	REQUIRE(matr.rows() == 3);
+	REQUIRE(matr.rows() == 2);
 	REQUIRE(matr.columns() == 3);
 }
