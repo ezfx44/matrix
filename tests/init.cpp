@@ -12,3 +12,12 @@ SCENARIO("matrix init", "[init]") {
 	REQUIRE(matr.rows() == 3);
 	REQUIRE(matr.columns() == 3);
 }
+SCENARIO("matrix operators", "[operators]") {
+	Matrix m1, m2, sum, comp;
+	m1.fill("matrix1.txt");
+	m2.fill("matrix2.txt");
+	sum.fill("matrix_sum.txt");
+	comp.fill("matrix_comp.txt");
+	REQUIRE (sum == m1 + m2);
+	REQUIRE (comp == m1 * m2);
+}
