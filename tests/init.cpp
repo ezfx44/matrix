@@ -22,7 +22,7 @@ SCENARIO("all-in-one test for methods", "[methods]") {
 	mx2 << "9 8 7 6 5 4 3 2 1";
 	mx2.close();
 	std::ofstream mx_sum("mx_sum.txt");
-	mx_sum << "10 10 10 10 10 10 10 10 11";
+	mx_sum << "10 10 10 10 10 10 10 10 10";
 	mx_sum.close();
 	std::ofstream mx_comp("mx_comp.txt");
 	mx_comp << "30 24 18 84 69 54 138 114 90";
