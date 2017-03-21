@@ -2,38 +2,105 @@
 #include <catch.hpp>
 #include <string>
 
-SCENARIO("matrix init", "[init]") {
-	Matrix matr;
-	REQUIRE(matr.rows() == 3);
-	REQUIRE(matr.columns() == 3);
-	Matrix matr2(5, 5);
-	REQUIRE(matr2.rows() == 5);
-	REQUIRE(matr2.columns() == 5);
-	Matrix matr3(matr);
-	REQUIRE(matr.rows() == 3);
-	REQUIRE(matr.columns() == 3);
+SCENARIO("matrix init w/o param", "[init w/o par]") {
+	Matrix matrix;
+	REQUIRE(matrix.rows() == 3);
+	REQUIRE(matrix.columns() == 3);
+	for (int i=0; i < matrix.rows(); i++) 
+	{
+		for (int j = 0; j < matrix.columns(); j++) 
+		{
+			REQUIRE(matrix.Element(i,j) == 0);
+		}
+	}
 }
 
-SCENARIO("all-in-one test for methods", "[methods]") {
-	std::ofstream mx1("mx1.txt");
-	mx1 << "1 2 3 4 5 6 7 8 9";
-	mx1.close();
-	std::ofstream mx2("mx2.txt");
-	mx2 << "9 8 7 6 5 4 3 2 1";
-	mx2.close();
-	std::ofstream mx_sum("mx_sum.txt");
-	mx_sum << "10 10 10 10 10 10 10 10 10";
-	mx_sum.close();
-	std::ofstream mx_comp("mx_comp.txt");
-	mx_comp << "30 24 18 84 69 54 138 114 90";
-	mx_comp.close();
-	Matrix m1, m2, sum, comp;
-	m1.fill_matrix("mx1.txt");
-	m2.fill_matrix("mx2.txt");
-	sum.fill_matrix("mx_sum.txt");
-	comp.fill_matrix("mx_comp.txt");
-	REQUIRE (sum == m1 + m2);
-	REQUIRE (comp == m1 * m2);
-	m1 = m2;
-	REQUIRE (m1 == m2);
+SCENARIO("matrix init with params", "[init w par]") {
+	Matrix matrix(5, 5);
+	REQUIRE(matrix.rows() == 5);
+	REQUIRE(matrix.columns() == 5);
+	for (int i = 0; i < matrix.rows(); i++) 
+	{
+		for (int j = 0; j < matrix.columns(); j++) 
+		{
+			REQUIRE(matrix.Element(i, j) == 0);
+		}
+	}
 }
+
+SCENARIO("matrix init copy", "[init copy]") {
+	Matrix matrix1(2,2);
+	Matrix matrix2(matrix1);
+	REQUIRE(matrix1.rows() == matrix2.rows());
+	REQUIRE(matrix1.columns() == matrix2.columns());
+	for (int i = 0; i < matrix1.rows(); i++) 
+	{
+		for (int j = 0; j < matrix1.columns(); j++) 
+		{
+			REQUIRE(matrix1.Element(i,j) == matrix2.Element(i,j));
+		}
+	}
+}
+
+SCENARIO("matrix operator +", "[op+]") {
+	Matrix matrix1(2, 2);
+	Matrix matrix2(2, 2);
+	ofstream test1("test1.txt");
+	test1 << "1 2 3 4";
+	test1.close();
+	matrix1.fill("test1.txt");
+	matrix2.fill("test1.txt");
+	REQUIRE(matrix1.Element(0,0) + matrix2.Element(0,0) == 2);
+	REQUIRE(matrix1.Element(0,1) + matrix2.Element(0,1) == 4);
+	REQUIRE(matrix1.Element(1,0) + matrix2.Element(1,0) == 6);
+	REQUIRE(matrix1.Element(1,1) + matrix2.Element(1,1) == 8);
+}
+
+SCENARIO("matrix operator *", "[op*]") {
+	Matrix matrix1(2,2);
+	Matrix matrix2(2,2);
+	ofstream test2("test2.txt");
+	test2 << "1 2 3 4";
+	test2.close();
+	matrix1.fill("test2.txt");
+	matrix2.fill("test2.txt");
+	REQUIRE(matrix1.Element(0,0) * matrix2.Element(0,0) + matrix1.Element(1,0) * matrix2.Element(0,1) == 7);
+	REQUIRE(matrix1.Element(0,1) * matrix2.Element(0,0) + matrix1.Element(1,1) * matrix2.Element(0,1) == 10);
+	REQUIRE(matrix1.Element(0,0) * matrix2.Element(1,0) + matrix1.Element(1,0) * matrix2.Element(1,1) == 15);
+	REQUIRE(matrix1.Element(0,1) * matrix2.Element(1,0) + matrix1.Element(1,1) * matrix2.Element(1,1) == 22);
+}
+	
+SCENARIO("matrix operator ==" , "[op==]") {
+	Matrix matrix1(2,2);
+	Matrix matrix2(2,2);
+	ofstream test3("test3.txt");
+	test3 << "1 2 3 4";
+	test3.close();
+	matrix1.fill("test3.txt");
+	matrix2.fill("test3.txt");
+	for (int i = 0; i < matrix1.rows(); i++) 
+	{
+		for (int j = 0; j < matrix1.columns(); j++) 
+		{
+			REQUIRE(matrix1.Element(i,j) == matrix2.Element(i,j));
+		}
+	}
+	
+}
+
+SCENARIO("matrix operator =" , "[op=]") {
+	Matrix matrix1(2,2);
+	Matrix matrix2(2,2);
+	ofstream test4("test4.txt");
+	test4 << "1 2 3 4";
+	test4.close();
+	matrix1.fill("test4.txt");
+	matrix2 = matrix1;
+	REQUIRE(matrix1.Element(0,0) == 1);
+	REQUIRE(matrix1.Element(0,1) == 2);
+	REQUIRE(matrix1.Element(1,0) == 3);
+	REQUIRE(matrix1.Element(1,1) == 4);
+	
+}
+
+SCENARIO("matrix operator >>", "[op>>]"
