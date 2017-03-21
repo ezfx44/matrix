@@ -9,7 +9,7 @@ auto Matrix::columns() const -> unsigned int
     return column;
 }
 
-int Matrix::Element(int i, int j)
+int Matrix::Element(int i, int j) const
 {
             if (i < row && j < column)
                 return arr[i][j];
