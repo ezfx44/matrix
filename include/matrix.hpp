@@ -12,8 +12,7 @@ public:
 	Matrix(int, int);
 	~Matrix();
 	Matrix(const Matrix&);
-	void fill_matrix(const char*);
-	void show_matrix() const;
+	int Element(int i, int j) const;
 	Matrix operator+(const Matrix&) const;
 	Matrix operator*(const Matrix&) const;
 	Matrix operator=(const Matrix&);
