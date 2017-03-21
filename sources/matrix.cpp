@@ -14,7 +14,7 @@ int Matrix::Element(int i, int j)
             if (i < row && j < column)
                 return arr[i][j];
             else
-                cout << "Error: 1";
+                std::cout << "Error: 1";
 }
 Matrix::Matrix(int side) : row(side), column(side)
 {
