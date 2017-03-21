@@ -59,6 +59,32 @@ Matrix::~Matrix()
 	delete[] arr;
 }
 
+void Matrix::fill_matrix(const char* name)
+{
+	std::ifstream fin(name);
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			fin >> arr[i][j];
+		}
+	}
+}
+
+void Matrix::show_matrix() const
+{
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			std::cout.width(4);
+			std::cout << arr[i][j] << " ";
+		}
+		std::cout << '\n';
+	}
+	std::cout << std::endl;
+}
+
 Matrix Matrix::operator+(const Matrix& m) const
 {
 	Matrix help(row, column);
@@ -71,8 +97,6 @@ Matrix Matrix::operator+(const Matrix& m) const
 	}
 	return help;
 }
-
-
 
 Matrix Matrix::operator*(const Matrix& m) const
 {
