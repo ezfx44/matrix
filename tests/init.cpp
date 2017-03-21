@@ -45,7 +45,7 @@ SCENARIO("matrix init copy", "[init copy]") {
 SCENARIO("matrix operator +", "[op+]") {
 	Matrix matrix1(2, 2);
 	Matrix matrix2(2, 2);
-	ofstream test1("test1.txt");
+	std::ofstream test1("test1.txt");
 	test1 << "1 2 3 4";
 	test1.close();
 	matrix1.fill("test1.txt");
@@ -59,7 +59,7 @@ SCENARIO("matrix operator +", "[op+]") {
 SCENARIO("matrix operator *", "[op*]") {
 	Matrix matrix1(2,2);
 	Matrix matrix2(2,2);
-	ofstream test2("test2.txt");
+	std::ofstream test2("test2.txt");
 	test2 << "1 2 3 4";
 	test2.close();
 	matrix1.fill("test2.txt");
@@ -73,7 +73,7 @@ SCENARIO("matrix operator *", "[op*]") {
 SCENARIO("matrix operator ==" , "[op==]") {
 	Matrix matrix1(2,2);
 	Matrix matrix2(2,2);
-	ofstream test3("test3.txt");
+	std::ofstream test3("test3.txt");
 	test3 << "1 2 3 4";
 	test3.close();
 	matrix1.fill("test3.txt");
@@ -91,7 +91,7 @@ SCENARIO("matrix operator ==" , "[op==]") {
 SCENARIO("matrix operator =" , "[op=]") {
 	Matrix matrix1(2,2);
 	Matrix matrix2(2,2);
-	ofstream test4("test4.txt");
+	std::ofstream test4("test4.txt");
 	test4 << "1 2 3 4";
 	test4.close();
 	matrix1.fill("test4.txt");
@@ -102,5 +102,3 @@ SCENARIO("matrix operator =" , "[op=]") {
 	REQUIRE(matrix1.Element(1,1) == 4);
 	
 }
-
-SCENARIO("matrix operator >>", "[op>>]"
