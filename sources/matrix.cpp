@@ -9,6 +9,10 @@ auto Matrix::columns() const -> unsigned int
     return column;
 }
 
+int Matrix::Element(int i, int j)
+{
+	return arr[i][j];
+}
 Matrix::Matrix(int side) : row(side), column(side)
 {
 	arr = new int*[row];
