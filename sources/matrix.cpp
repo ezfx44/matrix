@@ -11,8 +11,8 @@ auto Matrix::columns() const -> unsigned int
 
 int Matrix::Element(int i, int j)
 {
-            if (i<row && j<col)
-                return mas[i][j];
+            if (i < row && j < column)
+                return arr[i][j];
             else
                 cout << "Error: 1";
 }
