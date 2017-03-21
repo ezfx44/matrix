@@ -6,8 +6,8 @@ private:
 	int row, column;
 	int **arr;
 public:
-	auto rows() -> unsigned int;
-    	auto columns() -> unsigned int;
+	auto rows() const -> unsigned int;
+    	auto columns() const -> unsigned int;
 	Matrix(int side = 3);
 	Matrix(int, int);
 	~Matrix();
