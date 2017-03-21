@@ -12,7 +12,7 @@ public:
 	Matrix(int, int);
 	~Matrix();
 	Matrix(const Matrix&);
-	int Element(int i, int j) const;
+	int Element(int, int) const;
 	Matrix operator+(const Matrix&) const;
 	Matrix operator*(const Matrix&) const;
 	Matrix operator=(const Matrix&);
