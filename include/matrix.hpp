@@ -13,8 +13,8 @@ public:
 	~Matrix();
 	Matrix(const Matrix&);
 	int Element(int, int) const;
-	void fill_matrix(const char*);
-	void show_matrix() const;
+	void fill(const char*);
+	void show() const;
 	Matrix operator+(const Matrix&) const;
 	Matrix operator*(const Matrix&) const;
 	Matrix operator=(const Matrix&);
