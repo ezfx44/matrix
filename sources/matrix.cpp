@@ -59,7 +59,7 @@ Matrix::~Matrix()
 	delete[] arr;
 }
 
-void Matrix::fill_matrix(const char* name)
+void Matrix::fill(const char* name)
 {
 	std::ifstream fin(name);
 	for (int i = 0; i < row; i++)
@@ -71,7 +71,7 @@ void Matrix::fill_matrix(const char* name)
 	}
 }
 
-void Matrix::show_matrix() const
+void Matrix::show() const
 {
 	for (int i = 0; i < row; i++)
 	{
