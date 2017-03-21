@@ -161,11 +161,11 @@ std::ostream& operator << (std::ostream& os, const Matrix& m)
 	{
 		for (int j = 0; j < m.column; j++)
 		{
-			std::cout.width(4);
-			std::cout << m.arr[i][j] << " ";
+			os.width(4);
+			os << m.arr[i][j] << " ";
 		}
-		std::cout << '\n';
+		os << '\n';
 	}
-	std::cout << std::endl;
+	os << std::endl;
 	return os;
 }
